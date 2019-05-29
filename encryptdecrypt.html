@@ -15,8 +15,10 @@
 <script>
 	function encrpyt() {
 		var inputText = $("#inputText").val();
+		if(inputText!==""){
 		var encrypted = CryptoJS.AES.encrypt(inputText, "some unique key");
 		$("#outputText").text(encrypted);
+		}
 	}
 	function decrypt() {
 		var encryptedKey = $("#outputText").text();
