@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" ></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" ></script>
+<body>
+	<label>Please Enter String:</label>
+	<input accept="text" id="inputText">
+	<button onclick="encrpyt()">Encrypt</button>
+	<button onclick="decrypt()">Decrypt</button>
+	<div id="outputText" />
+</body>
+
+
+<script>
+	function encrpyt() {
+		var inputText = $("#inputText").val();
+		var encrypted = CryptoJS.AES.encrypt(inputText, "some unique key");
+		$("#outputText").text(encrypted);
+	}
+	function decrypt() {
+		var encryptedKey = $("#outputText").text();
+		var decrypted = CryptoJS.AES.decrypt(encryptedKey, "some unique key");
+		$("#outputText").text(decrypted.toString(CryptoJS.enc.Utf8));
+	}
+</script>
+</html>
+
+
+
+
+
+
